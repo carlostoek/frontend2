@@ -1,15 +1,45 @@
+@font-face {
+  font-family: 'iconos';
+  src: url("../fonts/icomoon.eot?iqdvxi");
+  src: url("../fonts/icomoon.eot?#iefixiqdvxi") format('embedded-opentype'), url("../fonts/icomoon.woff?iqdvxi") format('woff'), url("../fonts/icomoon.ttf?iqdvxi") format('truetype'), url("../fonts/icomoon.svg?iqdvxi#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+a {
+  color: #dd4f24;
+}
 body {
   background: #e8e8e8;
   color: #444;
   font-family: arial;
   font-size: 16px;
 }
+footer {
+  background: #dd4f24;
+  color: rgba(255,255,255,0.5);
+  left: 0;
+  padding: 1em 0;
+  right: 0;
+  text-align: center;
+}
+footer h3 {
+  font-size: 14px;
+}
+footer h3 strong {
+  display: block;
+}
+footer h3 .mejor:before,
+footer h3 .mejor:after {
+  content: " - ";
+}
 header {
   background: #444;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.2);
   color: #fff;
   overflow: hidden;
   padding: 0.5em;
   position: relative;
+  z-index: 1;
 }
 header .logo {
   border-right: 1px solid #22bce0;
@@ -37,6 +67,12 @@ header .titular .publicar {
   text-decoration: none;
   text-shadow: 1px 1px 0px #000;
 }
+header .titular .publicar:before {
+  content: "\e600";
+  display: inline-block;
+  font-family: iconos;
+  margin: 0 3px 0 0;
+}
 header .titular .titulo {
   font-size: 18px;
   font-weight: normal;
@@ -49,7 +85,7 @@ header .usuario {
   top: 10px;
 }
 header .usuario .avatar {
-  margin: 0 1em 0 0;
+  margin: 0 1.1em 0 0;
   position: relative;
   z-index: 2;
 }
@@ -61,19 +97,37 @@ header .usuario .flechita {
   background: #dd4f24;
   color: #fff;
   display: block;
-  padding: 3px;
+  padding: 2px;
   position: absolute;
   right: 0px;
   text-align: right;
+  text-decoration: none;
   top: 15px;
   width: 50%;
 }
+header .usuario .flechita:after {
+  content: "\e602";
+  font-family: 'iconos';
+  text-shadow: 1px 1px 0px #000;
+  vertical-align: bottom;
+}
 nav {
   background: #22bce0;
+  border-left: 15px solid #fff;
+  position: relative;
+}
+nav:before {
+  border-bottom: 20px solid transparent;
+  border-left: 6px solid #fff;
+  border-top: 20px solid transparent;
+  content: "";
+  left: 0px;
+  position: absolute;
+  top: 0px;
 }
 nav .menu {
-  height: 50px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   margin: 0px;
   padding: 0px;
   overflow-x: auto;
@@ -89,9 +143,126 @@ nav .menu li a {
   padding: 0 0.2em;
   text-decoration: none;
 }
+.posts {
+  padding: 0.5em;
+}
+.posts .post {
+  background: #fff;
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  color: #7a7a7a;
+  margin-bottom: 1em;
+}
+.posts .post .acciones {
+  border-top: 3px solid #22bce0;
+  padding: 0.5em;
+  overflow: hidden;
+}
+.posts .post .acciones .datos {
+  position: relative;
+}
+.posts .post .acciones .datos .comentarios {
+  background: #444;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 1em 0 0;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+.posts .post .acciones .datos .estrellita {
+  color: #e0d561;
+  text-decoration: none;
+}
+.posts .post .acciones .datos .estrellita:before {
+  content: "\e601";
+  font-family: 'iconos';
+  font-size: 1em;
+  vertical-align: bottom;
+}
+.posts .post .acciones .datos:before {
+  border-style: solid;
+  border-color: #444 transparent;
+  border-width: 5px 3px 0px;
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 19px;
+  left: 18px;
+}
+.posts .post .acciones .votos .down,
+.posts .post .acciones .votos .up {
+  text-decoration: none;
+}
+.posts .post .acciones .votos .down {
+  color: #f00;
+}
+.posts .post .acciones .votos .down:before {
+  content: "\e602";
+  font-family: 'iconos';
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+.posts .post .acciones .votos .up {
+  color: #008000;
+}
+.posts .post .acciones .votos .up:before {
+  content: "\e603";
+  font-family: 'iconos';
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+.posts .post .descripcion .detalles {
+  height: 160px;
+  margin-left: 130px;
+}
+.posts .post .descripcion .detalles .autor {
+  margin: 0.5em 0 2em 0;
+}
+.posts .post .descripcion .detalles .fecha {
+  margin: 0 1em 0 0;
+}
+.posts .post .descripcion .detalles .tag {
+  background: #22bce0;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+}
+.posts .post .descripcion .detalles .titulo {
+  color: #444;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0px;
+  padding: 0.5em 0.5em 0 0;
+}
+.posts .post .descripcion .imagen img {
+  height: 160px;
+  vertical-align: top;
+  width: 120px;
+}
 .left {
   float: left;
 }
 .right {
   float: right;
+}
+@media screen and (min-width: 768px) {
+  header .titular .publicar {
+    padding-left: 3em;
+    position: relative;
+  }
+  header .titular .publicar:before {
+    left: 0px;
+    font-size: 2.5em;
+    position: absolute;
+    top: -10px;
+  }
+  .posts .post {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+  }
+  .posts .post:nth-child(odd) {
+    margin-right: 2%;
+  }
 }

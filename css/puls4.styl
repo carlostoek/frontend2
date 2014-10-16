@@ -1,18 +1,56 @@
 azul = #22BCE0
 gris_oscuro = #444
+gris_texto = #7A7A7A
 naranja = #DD4F24
+
+@font-face {
+	font-family: 'iconos';
+	src:url('../fonts/icomoon.eot?iqdvxi');
+	src:url('../fonts/icomoon.eot?#iefixiqdvxi') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?iqdvxi') format('woff'),
+		url('../fonts/icomoon.ttf?iqdvxi') format('truetype'),
+		url('../fonts/icomoon.svg?iqdvxi#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a
+	color naranja
+
 body
 	background #E8E8E8
 	color gris_oscuro
 	font-family arial
 	font-size 16px
 
+footer
+	background naranja
+	color rgba(white, 0.5)
+	left 0
+	padding 1em 0
+	right 0
+	text-align center
+
+
+	h3
+		font-size 14px
+
+		strong
+			display block
+
+		.mejor
+			&:before
+			&:after
+				content " - "
+
 header
 	background gris_oscuro
+	box-shadow 0 5px 0 rgba(0,0,0,0.2)
 	color white
 	overflow hidden
 	padding 0.5em
 	position relative
+	z-index 1
 
 	.logo
 		border-right 1px solid azul
@@ -40,6 +78,12 @@ header
 			text-decoration none
 			text-shadow 1px 1px 0px black
 
+			&:before
+				content "\e600"
+				display inline-block
+				font-family iconos
+				margin 0 3px 0 0
+
 
 		.titulo
 			font-size 18px
@@ -53,7 +97,7 @@ header
 		top 10px
 
 		.avatar
-			margin 0 1em 0 0
+			margin 0 1.1em 0 0
 			position relative
 			z-index 2
 			img
@@ -64,19 +108,36 @@ header
 			background naranja
 			color white
 			display block
-			padding 3px
+			padding 2px
 			position absolute
 			right 0px
 			text-align right
+			text-decoration none
 			top 15px
 			width 50%
+			&:after
+				content "\e602"
+				font-family 'iconos'
+				text-shadow 1px 1px 0px black
+				vertical-align bottom
 
 nav
 	background azul
+	border-left 15px solid white
+	position relative
+
+	&:before
+		border-bottom 20px solid transparent
+		border-left 6px solid white
+		border-top 20px solid transparent
+		content ""
+		left 0px
+		position absolute
+		top 0px
 
 	.menu
-		height 50px
-		line-height 30px
+		height 40px
+		line-height 40px
 		margin 0px
 		padding 0px
 		overflow-x auto
@@ -91,9 +152,130 @@ nav
 				margin 0 0.5em
 				padding 0 0.2em
 				text-decoration none
+			
+.posts
+	padding 0.5em
+
+	.post
+		background white
+		border-radius 0 0 0.5em 0.5em
+		box-shadow 2px 2px 10px rgba(black, 0.5)
+		color gris_texto
+		margin-bottom 1em
+
+		.acciones
+			border-top 3px solid azul
+			padding 0.5em
+			overflow hidden
+
+			.datos
+				position relative
+				
+				.comentarios
+					background gris_oscuro
+					border-radius 3px
+					color white
+					margin 0 1em 0 0
+					padding 2px 5px
+					text-decoration none
+
+				.estrellita
+					color #E0D561
+					text-decoration none
+					&:before
+						content "\e601"
+						font-family 'iconos'
+						font-size 1em
+						vertical-align bottom
+				
+				&:before
+					border-style solid
+					border-color gris_oscuro transparent
+					border-width 5px 3px 0px
+					content ""
+					position absolute
+					width 0
+					top 19px
+					left 18px
+
+
+			.votos
+				.down
+				.up
+					text-decoration none
+
+				.down
+					color red
+					&:before
+						content "\e602"
+						font-family 'iconos'
+						font-size 1.5em
+						vertical-align bottom
+
+				.up
+					color green
+					&:before
+						content "\e603"
+						font-family 'iconos'
+						font-size 1.5em
+						vertical-align bottom
+
+		.descripcion
+			
+			.detalles
+				height 160px
+				margin-left 130px
+
+				.autor
+					margin 0.5em 0 2em 0
+
+				.fecha
+					margin 0 1em 0 0
+
+				.tag
+					background azul
+					border-radius 0.5em
+					color white
+					padding 0.2em 0.5em
+					text-decoration none
+				
+				.titulo
+					color gris_oscuro
+					font-size 18px
+					font-style italic
+					margin 0px
+					padding 0.5em 0.5em 0 0
+
+			.imagen
+				img
+					height 160px
+					vertical-align top
+					width 120px
 
 .left
 	float left
 
 .right
 	float right
+
+@media screen and (min-width: 768px)
+	
+	header
+		.titular
+			.publicar
+				padding-left 3em
+				position relative
+
+				&:before
+					left 0px
+					font-size 2.5em
+					position absolute
+					top -10px
+	
+	.posts
+		.post
+			display inline-block
+			width 48%
+			vertical-align top
+			&:nth-child(odd)
+				margin-right 2%
